@@ -14,4 +14,9 @@ foreach ($digests as $digest) {
     ok( $tkt = $auth_tkt->create_ticket(array('uid' => 'user')), "new tkt" );
     cmp_ok( strlen($tkt), '>', strlen($last_tkt), "each digest makes longer ticket" );
     $last_tkt = $tkt;
+
+    if (!ok( $auth_tkt->validate_ticket($tkt), "validate ticket $digest" )) {
+      diag( $auth_tkt->get_err() );
+    }
+    diag_dump($auth_tkt);
 }
