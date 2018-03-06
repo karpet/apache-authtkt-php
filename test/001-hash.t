@@ -3,11 +3,11 @@
 
 require_once 'TestMore.php';
 
-plan(1);
+plan(12);
 
 require_once 'lib/Apache_AuthTkt.php';
 
-$digests = array('md5', 'sha1', 'sha256', 'sha512');
+$digests = array('md5', 'sha1', 'SHA256', 'sHa512');
 $last_tkt = '';
 foreach ($digests as $digest) {
     ok( $auth_tkt =new Apache_AuthTkt(array('secret' => 'sekrit', 'digest_type' => $digest)), "new $digest AuthTkt" );

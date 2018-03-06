@@ -83,7 +83,7 @@ class Apache_AuthTkt {
 
         }
         if (isset($config['digest_type'])) {
-            $this->digest_type = $config['digest_type'];
+            $this->digest_type = strtolower($config['digest_type']);
         }
         if (isset($config['encrypt_data'])) {
             $this->encrypt_data = $config['encrypt_data'];
