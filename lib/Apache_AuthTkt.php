@@ -263,6 +263,11 @@ class Apache_AuthTkt {
             }
         }
 
+        // support 'uid' or 'user' param name
+        if (!$opts['user'] && $opts['uid']) {
+            $opts['user'] = $opts['uid'];
+        }
+
         // set the timestamp to now
         // unless a time is specified
         if ( empty($opts['ts']) ) {
